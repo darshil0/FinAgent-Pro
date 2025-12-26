@@ -78,33 +78,31 @@ ai-finagent-qa/
 
 1. **Clone & Enter**
 ```bash
-git clone [https://github.com/yourusername/ai-finagent-qa.git](https://github.com/yourusername/ai-finagent-qa.git)
-cd ai-finagent-qa
-
+git clone https://github.com/darshil0/finagent-pro.git
+cd finagent-pro
 ```
 
 
 2. **Install Dependencies**
 ```bash
 bun install
-
+# OR
+npm install
 ```
 
 
 3. **Environment Setup**
 ```bash
 cp .env.example .env.local
-
 ```
 
 
 *Add your `GEMINI_API_KEY` to `.env.local`.*
 4. **Verify Quality**
 ```bash
-bun run lint       # Run ESLint
-bun run typecheck  # Run tsc
-bun test           # Run Vitest
-
+npm run lint       # Run ESLint
+npx tsc            # Run Type Checking
+npm test           # Run Vitest
 ```
 
 
@@ -112,8 +110,9 @@ bun test           # Run Vitest
 ### Local Development
 
 ```bash
+npm run dev
+# OR
 bun dev
-
 ```
 
 Navigate to `http://localhost:3000`.
@@ -127,19 +126,15 @@ Navigate to `http://localhost:3000`.
 **Unit & Integration (Vitest)**
 
 ```bash
-bun test                # Standard run
-bun test:ui             # Interactive Vitest UI
-bun test:coverage       # Generate Istanbul report
-
+npm test                # Standard run
+npm run test:watch      # Watch mode
 ```
 
 **End-to-End (Playwright)**
 
 ```bash
 npx playwright install  # First time only
-bun run test:e2e        # Headless run
-bun run test:e2e:ui     # Interactive trace viewer
-
+npx playwright test     # Headless run
 ```
 
 ### Test Standards
