@@ -1,0 +1,49 @@
+{
+  "projectId": "d9872e63-2ba0-413f-bb0a-83e42e20d21d",
+  "name": "FinAgent Pro",
+  "createdAt": 1766530992231,
+  "version": "1.3.0",
+  "description": "AI-driven financial intelligence dashboard (Next.js 16 + shadcn/ui + Gemini 1.5 Flash)",
+  "startupCommands": [
+    "bun install",
+    "bun run dev"
+  ],
+  "installCommand": "bun install",
+  "devCommand": "bun run dev",
+  "buildCommand": "bun run build",
+  "bunVersion": ">=1.1.0",
+  "nodeVersion": ">=20.0.0",
+  "ports": [3000],
+  "framework": "nextjs",
+  "dependencies": {
+    "next": "16.0.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwindcss": "^4.0.0-alpha.20",
+    "@radix-ui": "*",
+    "lucide-react": "0.552.0",
+    "recharts": "2.15.4"
+  },
+  "env": {
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini 1.5 Flash API key from AI Studio",
+      "required": true,
+      "secure": true
+    },
+    "NEXT_PUBLIC_APP_URL": {
+      "default": "http://localhost:3000",
+      "description": "App base URL for Server Actions"
+    }
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "uiFramework": "shadcn/ui",
+  "theme": "new-york",
+  "responsive": true
+}

@@ -1,0 +1,93 @@
+/* AI FinAgent QA - Production CSS | 2025-12-23 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Refined Deep Slate Palette for low eye-strain during long QA sessions */
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+    --card: 222 47% 6%;
+    --card-foreground: 213 31% 91%;
+    --popover: 222 47% 4%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 199 89% 48%;
+    --radius: 0.75rem;
+
+    /* Chart Semantic Colors */
+    --chart-1: 199 89% 48%; /* Sky 500 */
+    --chart-2: 142 71% 45%; /* Emerald 500 */
+    --chart-3: 245 58% 66%; /* Indigo 400 */
+    --chart-4: 28 91% 54%;  /* Orange 500 */
+    --chart-5: 0 84% 60%;   /* Red 500 */
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    /* Prevent layout shift on scrollbar appearance */
+    scrollbar-gutter: stable;
+  }
+}
+
+@layer components {
+  /* Enhanced Glassmorphism with Safari Fix */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 shadow-2xl;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); /* Safari Support */
+  }
+
+  /* Status Badges with Subtle Glow */
+  .status-pass {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)];
+  }
+
+  .status-fail {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/10 text-red-400 border border-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.1)];
+  }
+
+  .status-warning {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)];
+  }
+}
+
+@layer utilities {
+  /* High-Performance Custom Scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.slate.800') transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
+  }
+
+  /* Optimized Animation for Live Indicators */
+  .animate-qa-pulse {
+    animation: qa-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes qa-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+  }
+}
